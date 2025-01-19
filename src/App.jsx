@@ -3,16 +3,36 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
+
+
+function List(props) {
+  if (!props.animals) {
+    return <div>Loading...</div>;
+  }
+
+  if (props.animals.length === 0) {
+    return <div>There are no animals in the list!</div>;
+  }
 
   return (
-    <>
-      <p className="hello-world">
-        Hello World
-      </p>
-    </>
-  )
+    <ul>
+      {props.animals.map((animal) => {
+        return <li key={animal}>{animal}</li>;
+      })}
+    </ul>
+  );
+}
+
+function App() {
+  const animals = ["Thylacine", "megatherium", "archeopteryx", "paraceratherium"];
+  return(
+    <div>
+      <h1>
+        Animals: 
+      </h1>
+      <List animals={animals}/>
+    </div>
+  );
 }
 
 export default App

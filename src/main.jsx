@@ -1,13 +1,12 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import Greeting from './Greeting.jsx'
-import EvilGreeting from './EvilGreeting.jsx'
-import App from './App.jsx'
-import TodoList from './TodoList.jsx'
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import routes from "./routes";
 
-createRoot(document.getElementById('root')).render(
+const router = createBrowserRouter(routes);
+
+createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <TodoList />
+    <RouterProvider router={router} />
   </StrictMode>,
-)
+);

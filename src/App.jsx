@@ -1,38 +1,13 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-
-
-
-function List(props) {
-  if (!props.animals) {
-    return <div>Loading...</div>;
-  }
-
-  if (props.animals.length === 0) {
-    return <div>There are no animals in the list!</div>;
-  }
-
-  return (
-    <ul>
-      {props.animals.map((animal) => {
-        return <li key={animal}>{animal}</li>;
-      })}
-    </ul>
-  );
-}
+import React from 'react';
+import Profile from './Profile';
+import './App.css';
 
 function App() {
-  const animals = ["Thylacine", "megatherium", "archeopteryx", "paraceratherium"];
-  return(
-    <div>
-      <h1>
-        Animals: 
-      </h1>
-      <List animals={animals}/>
+  return (
+    <div className="App">
+      <Profile delay={1000} />
     </div>
   );
 }
 
-export default App
+export default App;
